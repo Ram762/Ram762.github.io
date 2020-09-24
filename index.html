@@ -7,24 +7,27 @@
 <style>
 header{
 background-color:blue;
-height:70px;.
+height:70px;
+padding-top: 2px;
 }
 #Game{
-position:relative;
-left:100;
+position: relative;
+top:100px;
+
+
 }
 </style>
 </head>
 <body>
 <header role="banner">
-    <div><h1><center>The Best Game ever</center></h1></div>
+    <div><h1><center>The Best Game ever</center></h1></div></center>
 		</header><br><br>
 
-    <canvas id="canvas"></canvas>
-  <script id ="Game">
+    <canvas id="canvas" align="center"></canvas>
+    <script id ="Game">
         var canvas = document.getElementById("canvas");
         var processing = new Processing(canvas, function(processing) {
-            processing.size(400, 400);
+            processing.size(1350, 520);
             processing.background(0xFFF);
 
             var mouseIsPressed = false;
@@ -110,16 +113,16 @@ Obstacle.prototype.drawBig = function() {
 
 var beaver = new Beaver(200, 300);
 var sticks = [];
-for (var i = 0; i < 40; i++) {
+for (var i = 0; i < 150; i++) {
     sticks.push(new Stick(i * 40 + 300, random(20, 260)));
 }
 // defines an array for obstacles and pushes 40 values in it
 var obstacles = [];
-for (var i = 0; i < 40; i++) {
+for (var i = 0; i < 150; i++) {
     obstacles.push(new Obstacle(i * 40 + 300, random(20, 260)));
 }
 var grassXs = [];
-for (var i = 0; i < 25; i++) {
+for (var i = 0; i <100 ; i++) {
     grassXs.push(i*20);
 }
 draw = function(){
@@ -132,7 +135,7 @@ draw = function(){
     rect(0, height*0.90, width, height*0.10);
 
     for (var i = 0; i < grassXs.length; i++) {
-        image(getImage("cute/GrassBlock"), grassXs[i], height*0.85,          20, 20);
+        image(getImage("cute/GrassBlock"), grassXs[i], height*0.85,20, 20);
         grassXs[i] -= 1;
         if (grassXs[i] <= -20) {
             grassXs[i] = width;
@@ -150,11 +153,12 @@ draw = function(){
      // defines a varible for the actual score
     var score = beaver.sticks-beaver.obstacles;
     textSize(18);
-    text("Score: " + score, 20, 30);
+    text("Level 1 ", 20, 20);
+    text("Score: " + score, 20, 40);
     // prints a warning for the user
-    text("Avoid the red balls!", 100, 30);
+    text("Avoid the red balls!", 20, 60);
       // checks if the score is above a certain value
-     if (score >  10) {
+     if (score >  50) {
         textSize(36);
         // prints text for the next level
         text("Next Level " , 100, 200);
@@ -190,13 +194,15 @@ draw = function(){
 
     var score= beaver.sticks-beaver.obstacles;
     textSize(18);
-    text("Score: " + score, 20, 30);
-    text("Avoid the red balls!", 100, 30);
+    text("Level 2 " , 20, 20);
+    text("Score: " + score, 20, 40);
+    // prints a warning for the user
+    text("Avoid the red balls!", 20, 60);
 
-    if (score >  15) {
+    if (score >85) {
         textSize(36);
         // prints You Win with two stars
-        text("You Win " , 100, 200);
+        text("You Win !! Please Refresh the Page to play Again  " , 100, 200);
         var img =getImage("cute/Star");
         image(img,100,200);
          image(img,200,200);
