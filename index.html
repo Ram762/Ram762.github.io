@@ -210,7 +210,16 @@ draw = function(){
          image(img,200,200);
     }
     }
-
+function startup() {
+  const el = document.getElementById('canvas');
+  el.addEventListener('touchstart', handleStart);
+  el.addEventListener('touchend', handleEnd);
+  el.addEventListener('touchcancel', handleCancel);
+  el.addEventListener('touchmove', handleMove);
+  log('Initialized.');
+}
+	
+document.addEventListener("DOMContentLoaded", startup);
     if (keyIsPressed && keyCode === 0) {
         beaver.hop();
     } else {
