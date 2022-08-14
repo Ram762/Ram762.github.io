@@ -210,27 +210,18 @@ draw = function(){
          image(img,200,200);
     }
     }
-	 var touchedElement = document.getElementById("canvas");
-  touchedElement.addEventListener("touchstart", funcTouchStart, false);
-  touchedElement.addEventListener("touchend", funcTouchEnd, false);
-  touchedElement.addEventListener("touchmove", funcTouchMove, false);
-
-  function funcTouchStart(e) {
-    //code to do what you want like set variables and check where on screen touch happened
-        beaver.hop();
-    var touches = e.changedTouches; //gets array of touch points, to get position
-  }
-
-  function funcTouchEnd(e) {
-    //code
-	  beaver.fall();
-  }
-
-  function funcTouchMove(e) {
-    //code
-	   beaver.hop();
-  }
-	
+	 function is_touch_enabled() {
+            return ( 'ontouchstart' in window ) ||
+                   ( navigator.maxTouchPoints > 0 ) ||
+                   ( navigator.msMaxTouchPoints > 0 );
+        }
+     if( is_touch_enabled() ) {
+              beaver.hop();
+        }
+        else {
+            beaver.fall();
+        }
+     
 	
 	
     if (keyIsPressed && keyCode === 0) {
