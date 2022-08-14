@@ -157,8 +157,10 @@ draw = function(){
     text("Score: " + score, 20, 40);
     // prints a warning for the user
     text("Avoid the red balls!", 20, 60);
+	     text("Level 2 begins at score 50", 20, 60);
+	     text("Winning score is 80", 20, 60);
       // checks if the score is above a certain value
-     if (score >  50) {
+     if (score >=  50) {
         textSize(36);
         // prints text for the next level
         text("Next Level " , 100, 200);
@@ -199,7 +201,7 @@ draw = function(){
     // prints a warning for the user
     text("Avoid the red balls!", 20, 60);
 
-    if (score >80) {
+    if (score >=80) {
         textSize(36);
         // prints You Win with two stars
         text("You Win !! Please Refresh the Page to play Again  " , 100, 200);
@@ -208,7 +210,23 @@ draw = function(){
          image(img,200,200);
     }
     }
+var touchedElement = document.getElementById("myElementToBeTouched");
+  touchedElement.addEventListener("touchstart", funcTouchStart, false);
+  touchedElement.addEventListener("touchend", funcTouchEnd, false);
+  
 
+  function funcTouchStart(e) {
+    //code to do what you want like set variables and check where on screen touch happened
+  beaver.hop();
+   
+  }
+
+  function funcTouchEnd(e) {
+    //code
+   beaver.fall();
+  }
+
+ 
     if (keyIsPressed && keyCode === 0) {
         beaver.hop();
     } else {
