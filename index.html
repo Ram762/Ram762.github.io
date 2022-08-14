@@ -210,32 +210,27 @@ draw = function(){
          image(img,200,200);
     }
     }
-function startup() {
-  const el = document.getElementById('canvas');
-  el.addEventListener('touchstart', handleStart);
-  el.addEventListener('touchend', handleEnd);
-  el.addEventListener('touchcancel', handleCancel);
-  el.addEventListener('touchmove', handleMove);
-  log('Initialized.');
-}
-	
-document.addEventListener("DOMContentLoaded", startup);
-	const ongoingTouches = [];
-	function handleStart(evt) {
-  evt.preventDefault();
-  log('touchstart.');
-		  const el = document.getElementById('canvas');
-  const ctx = el.getContext('2d');
-  const touches = evt.changedTouches;
-		 for (let i = 0; i < touches.length; i++) {
-    log(`touchstart: ${i}.`);
-   beaver.hop();
-  }   if ( i < touches.length) {
+	 var touchedElement = document.getElementById("canvas");
+  touchedElement.addEventListener("touchstart", funcTouchStart, false);
+  touchedElement.addEventListener("touchend", funcTouchEnd, false);
+  touchedElement.addEventListener("touchmove", funcTouchMove, false);
+
+  function funcTouchStart(e) {
+    //code to do what you want like set variables and check where on screen touch happened
         beaver.hop();
-    } else {
-        beaver.fall();
-    }
-	}
+    var touches = e.changedTouches; //gets array of touch points, to get position
+  }
+
+  function funcTouchEnd(e) {
+    //code
+	  beaver.fall();
+  }
+
+  function funcTouchMove(e) {
+    //code
+	   beaver.hop();
+  }
+	
 	
 	
     if (keyIsPressed && keyCode === 0) {
