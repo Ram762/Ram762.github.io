@@ -220,6 +220,12 @@ function startup() {
 }
 	
 document.addEventListener("DOMContentLoaded", startup);
+	function handleStart(evt) {
+  evt.preventDefault();
+  log('touchstart.');
+	}
+	
+	const ongoingTouches = [];
     if (keyIsPressed && keyCode === 0) {
         beaver.hop();
     } else {
