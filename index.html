@@ -1,3 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <title>The Best Game</title>
+     <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.8/processing.min.js"></script>
+<style>
+header{
+background-color:blue;
+height:70px;
+padding-top: 2px;
+}
+#Game{
+position: relative;
+top:100px;
+
 
 }
 </style>
@@ -194,7 +210,17 @@ draw = function(){
          image(img,200,200);
     }
     }
-
+function is_touch_enabled() {
+            return ( 'ontouchstart' in window ) ||
+                   ( navigator.maxTouchPoints > 0 ) ||
+                   ( navigator.msMaxTouchPoints > 0 );
+        }
+         if( is_touch_enabled() ) {
+           beaver.hop();
+        }
+        else {
+             beaver.fall();
+        }
     if (keyIsPressed && keyCode === 0) {
         beaver.hop();
     } else {
