@@ -152,13 +152,13 @@ draw = function(){
 
      // defines a varible for the actual score
     var score = beaver.sticks-beaver.obstacles;
-    textSize(18);
-    text("Level 1 ", 20, 20);
-    text("Score: " + score, 20, 40);
+    textSize(13);
+    text("Level 1 ", 20, 15);
+    text("Score: " + score, 20, 30);
     // prints a warning for the user
-    text("Avoid the red balls!", 20, 60);
-	     text("Level 2 begins at score 50", 20, 80);
-	     text("Winning score is 80", 20, 100);
+    text("Avoid the red balls!", 20, 45);
+    text("Level 2 begins at 50 points", 20, 60);
+    text("Winning score is 80", 20, 75);
       // checks if the score is above a certain value
      if (score >=  50) {
         textSize(36);
@@ -209,9 +209,8 @@ draw = function(){
         image(img,100,200);
          image(img,200,200);
     }
-    
+    }
 
- 
     if (keyIsPressed && keyCode === 0) {
         beaver.hop();
     } else {
@@ -223,9 +222,7 @@ draw = function(){
 
 
 
-
-
-            
+            }
             if (typeof draw !== 'undefined') processing.draw = draw;
         });
    </script>
