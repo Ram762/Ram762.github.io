@@ -216,7 +216,7 @@ draw = function(){
     } else {
         beaver.fall();
     }
-    beaver.draw();
+    
 };
 function is_touch_enabled() {
             return ( 'ontouchstart' in window ) ||
@@ -229,7 +229,7 @@ function is_touch_enabled() {
         else {
             beaver.fall();
         }
-
+  beaver.draw();
 
             }
             if (typeof draw !== 'undefined') processing.draw = draw;
