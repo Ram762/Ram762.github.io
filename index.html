@@ -220,12 +220,24 @@ function startup() {
 }
 	
 document.addEventListener("DOMContentLoaded", startup);
+	const ongoingTouches = [];
 	function handleStart(evt) {
   evt.preventDefault();
   log('touchstart.');
+		  const el = document.getElementById('canvas');
+  const ctx = el.getContext('2d');
+  const touches = evt.changedTouches;
+		 for (let i = 0; i < touches.length; i++) {
+    log(`touchstart: ${i}.`);
+   beaver.hop();
+  }   if ( i < touches.length) {
+        beaver.hop();
+    } else {
+        beaver.fall();
+    }
 	}
 	
-	const ongoingTouches = [];
+	
     if (keyIsPressed && keyCode === 0) {
         beaver.hop();
     } else {
